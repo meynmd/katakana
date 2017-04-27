@@ -1,0 +1,35 @@
+s1
+
+(s1 (s1 A det 1.0))
+(s1 (s1 AN det 1.0))
+(s1 (s1 PANDA n 1.0))
+
+(s1 (s1 EATS v 0.99))
+(s1 (s1 EATS n 0.01))
+
+(s1 (s1 SHOOTS v 0.9))
+(s1 (s1 SHOOTS n 0.1))
+
+(s1 (s1 AND conj 1.0))
+
+(s1 (s1 LEAVES v 0.75))
+(s1 (s1 LEAVES n 0.25))
+
+(s1 (s1 THEY pro 1.0))
+
+(s1 (s1 CAN vm 0.75))
+(s1 (s1 CAN n 0.2))
+(s1 (s1 CAN v 0.05))
+
+(s1 (s1 TIME n 0.75))
+(s1 (s1 TIME v 0.25))
+
+(s1 (s1 FLIES v 0.5))
+(s1 (s1 FLIES n 0.5))
+
+(s1 (s1 LIKE prep 0.5))
+(s1 (s1 LIKE v 0.4))
+(s1 (s1 LIKE n 0.1))
+
+(s1 (s1 ARROW n 1.0))
+
