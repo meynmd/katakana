@@ -65,13 +65,10 @@ def read_file(file_name):
     data =set()
     fp=open(file_name,'r')
     for line in fp.readlines():
-        #print(line.split(' ')[0])
         data.add(line.split(' ')[0])
-        #data.append(line.split(' ')[0])
+
 
     return data
-
-
 
 
 
