@@ -1,92 +1,53 @@
+from __future__ import division
 from collections import defaultdict
-import numpy as np
 
-#E# AH K EY SH AH
-#J# A K A SH I A
-#M# 1 2 3 4 4 5
+def build_epron_jpron_data():
+    pron_maping = defaultdict(lambda: defaultdict(int))
+    with open('epron-jpron.data', 'r') as fp:        
+        epron, jpron, relat = [], [], []
+        li = 0
+        for line in fp:
+            if li%3 == 0:
+                epron = line.strip().split()
+            elif li%3 == 1:
+                jpron = line.strip().split()
+            elif li%3 == 2:
+                relat = map(int, line.strip().split())
+            
+            li += 1            
+            if li%3 == 0:                
+                jpr = ''
+                for jn,jp in enumerate(jpron):
+                    jpr += jp + ' '                    
+                    if jn < len(relat)-1 and relat[jn+1] == relat[jn]:
+                        continue
+                    jpr = jpr.strip()
+                    k = relat[jn] - 1                        
+                    pron_maping[epron[k]][jpr] += 1
+                    jpr = ''
+                
+    return pron_maping
 
-#['AH'][]
+def estimate():
+    d_ep_jp = build_epron_jpron_data()
+    d_ep_jp_prob = defaultdict(lambda: defaultdict(float))
 
+    for ep in d_ep_jp:
+        tot = sum([d_ep_jp[ep][jp] for jp in d_ep_jp[ep]])
 
-def read_construct_data(file_name):
-    j_e_dis=defaultdict(dict)
-    fp=open(file_name)
-    count =0
-    for line in fp.readlines():
-        line1=line.split('\n')[0]
-        line1=line1.split(' ')
-
-
-
-
-
-        if count==0:
-            eng_phos = np.array(line1)
-            count+=1
-            continue
-        if count==1:
-            jap_phos = np.array(line1)
-            count+=1
-            continue
-
-        if count == 2:
-            mapping_list = np.array([ int(temp) for temp in line1])
-            #print(mapping_list)
-            for i in range(len(eng_phos)):
-                key = eng_phos[i]
-                if key not in  j_e_dis:
-                    j_e_dis[eng_phos[i]] = defaultdict(float)
-
-                ind = i+1
-                positions = np.where(mapping_list==ind)[0]
-                if len(positions)>3:
-                    continue
-
-                key1=' '.join(jap_phos[positions])
-                j_e_dis[key][key1]+=1
-
-            count=0
-
-    final_dict ={}
-    for key in j_e_dis:
-        total_val =sum(j_e_dis[key].values())
-        if key not in final_dict:
-            final_dict[key] = {}
-        final_dict[key]={key1:round(j_e_dis[key][key1]/total_val,3) for key1 in j_e_dis[key]}
-
-
-
-    return final_dict
-
-
-
-
-
-
-def writing_prob(prob,output_file):
-    fp=open(output_file,mode='w')
-    for key in prob:
-        temp_dict=sorted(prob[key],key=prob[key].get,reverse=True)
-        for key1 in temp_dict:
-            temp_str = key + ' : ' + key1+ ' # '+ str(prob[key][key1])+'\n'
-            fp.write(temp_str)
-
-
-
-
-
-
-
-
-
-
+        for jp in d_ep_jp[ep]:
+            if d_ep_jp[ep][jp]/tot > 0.001 and len(jp.split()) < 3:
+                d_ep_jp_prob[ep][jp] = d_ep_jp[ep][jp]/tot
+    return d_ep_jp_prob
 
 
 
 if __name__ == '__main__':
-    file_name = 'epron-jpron.data'
-    output_file = 'epron-jpron.probs'
-    prob=read_construct_data(file_name)
-    writing_prob(prob,output_file)
-
+    d_ep_jp_prob = estimate()
+    all_eps = d_ep_jp_prob.keys()
+    all_eps.sort()
+    with open('epron-jpron.probs', 'w') as fp:
+        for ep in all_eps:
+            for jp in d_ep_jp_prob[ep]:
+                fp.write(ep + ' : ' + jp + ' # ' + "{:.4f}".format(d_ep_jp_prob[ep][jp]) + '\n')
 
