@@ -1,0 +1,50 @@
+Input line 1: ICE CREAM
+	(313821 states / 313820 arcs reduce-> 12/11)
+	(79 states / 204 arcs reduce-> 58/177)
+A I S U K R I I M 0.048554285340736
+A I S K R I I M 0.0421565442134861
+A I S U K R I M 0.024071054871808
+A I S U K A I I M 0.021402217880456
+A I S K R I M 0.0208993394063462
+Derivations found for all 1 inputs
+Viterbi (best path) product of probs=0.048554285340736, probability=2^-4.36426 per-input-symbol-perplexity(N=2)=2^2.18213 per-line-perplexity(N=1)=2^4.36426
+Input line 1: MILK
+	(209214 states / 209213 arcs reduce-> 8/7)
+	(52 states / 119 arcs reduce-> 32/92)
+M I R K 0.2181455892
+M I R U K 0.1262948148
+M I R K U 0.076740501915
+M U I R K 0.0703591812
+M I R KK U 0.062716856895
+Derivations found for all 1 inputs
+Viterbi (best path) product of probs=0.2181455892, probability=2^-2.19664 per-input-symbol-perplexity(N=1)=2^2.19664 per-line-perplexity(N=1)=2^2.19664
+Input line 1: SCOTLAND
+	(209214 states / 209213 arcs reduce-> 12/11)
+	(72 states / 238 arcs reduce-> 61/223)
+S U K O T R A N D 0.0105376671583968
+S U K A T R A N D 0.00987906296099702
+S K O T R A N D 0.00914917454458453
+S K A T R A N D 0.008577351135548
+S U K O T R U A N D 0.00610075467065079
+Derivations found for all 1 inputs
+Viterbi (best path) product of probs=0.0105376671583968, probability=2^-6.5683 per-input-symbol-perplexity(N=1)=2^6.5683 per-line-perplexity(N=1)=2^6.5683
+nput line 1: LAPTOP
+	(209214 states / 209213 arcs reduce-> 10/9)
+	(43 states / 122 arcs reduce-> 38/116)
+R A P T O P 0.0525924932553799
+R A P T A P 0.0493054624269187
+R U A P T O P 0.0304482855689042
+R A P T O O P 0.0285881213337731
+R U A P T A P 0.0285452677208477
+Derivations found for all 1 inputs
+Viterbi (best path) product of probs=0.05259249325538, probability=2^-4.249 per-input-symbol-perplexity(N=1)=2^4.249 per-line-perplexity(N=1)=2^4.249
+Input line 1: SHAVING CREAM
+	(313821 states / 313820 arcs reduce-> 15/14)
+	(84 states / 234 arcs reduce-> 71/219)
+SH Y E E B I N K R I I M 0.0113676698728638
+SH E E B I N K R I I M 0.0105825154972606
+SH Y E E B I N K R I M 0.00563558506430598
+SSH Y U E E B I N K R I I M 0.00529125774863028
+SH E E B I N K R I M 0.00524634045025481
+Derivations found for all 1 inputs
+Viterbi (best path) product of probs=0.0113676698728638, probability=2^-6.45892 per-input-symbol-perplexity(N=2)=2^3.22946 per-line-perplexity(N=1)=2^6.45892
