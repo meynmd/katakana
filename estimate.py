@@ -36,7 +36,7 @@ def estimate():
         tot = sum([d_ep_jp[ep][jp] for jp in d_ep_jp[ep]])
 
         for jp in d_ep_jp[ep]:
-            if d_ep_jp[ep][jp]/tot > 0.001 and len(jp.split()) < 3:
+            if d_ep_jp[ep][jp]/tot > 0.001 and len(jp.split()) <= 3:
                 d_ep_jp_prob[ep][jp] = d_ep_jp[ep][jp]/tot
     return d_ep_jp_prob
 
