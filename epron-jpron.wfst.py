@@ -15,11 +15,11 @@ if __name__ == '__main__':
                     if i == 0:
                         start = 'F'
                         transition = ep
-                        end = ep+'_'+jp_sounds[i]
+                        end = ep+'_'+jp.replace(' ', '#')+'_'+jp_sounds[i]
                     else:
-                        start = ep+'_'+'_'.join(jp_sounds[:i])
+                        start = ep+'_'+jp.replace(' ', '#')+'_'+'_'.join(jp_sounds[:i])
                         transition = EPSILON
-                        end = start + '_' + jp_chars                    
+                        end = start + '_' + jpc                    
                     fp.write('({0} ({1} {2} {3} {4}))\n'.format(start, end, transition, out, 1.0))
                     if i == len(jp_sounds)-1:
                         fp.write('({1} ({0} {2} {3} {4}))\n'.format('F', end, EPSILON, EPSILON, ep_jp_prob[ep][jp]))                
