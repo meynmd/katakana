@@ -3,8 +3,9 @@ s1
 
 (s1 (s1 det A 0.25))
 (s1 (s1 det AN 0.25))
-(s1 (s1 det THE 0.5))
-(s1 (s1 det THAT 1))
+(s1 (s1 det THE 0.3))
+(s1 (s1 det THAT 0.1))
+(s1 (s1 det THIS 0.1))
 
 
 (s1 (s1 n PANDA 0.1))
@@ -30,15 +31,16 @@ s1
 (s1 (s1 v HOPE 0.1))
 (s1 (s1 v WORKS 0.1))
 (s1 (s1 v FISH 0.1))
-(s1 (s1 v THIS 0.1))
 
 
 (s1 (s1 aux CAN 1))
 
 (s1 (s1 prep LIKE 1))
 
-(s1 (s1 pro THEY 0.5))
-(s1 (s1 pro I 0.5))
+(s1 (s1 pro THEY 0.4))
+(s1 (s1 pro I 0.4))
+(s1 (s1 pro THIS 0.1))
+(s1 (s1 pro THAT 0.1))
 
-(s1 (s1 conj AND 1.0))
-
+(s1 (s1 conj AND 0.75))
+(s1 (s1 conj THAT 0.25))
